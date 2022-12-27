@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:fillViewport="true"
+    tools:context=".MainActivity">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_wave__14_"
+
+    >
+
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/bag"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+            app:layout_constraintTop_toTopOf="@id/top_guideline" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:drawableEnd="@drawable/location"
+            android:drawablePadding="5dp"
+            android:text="BagLocator"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/mdp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/mdp"
+            android:drawablePadding="5dp"
+            android:hint="Entrer votre mot de passe"
+           android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@id/subtitle"
+            app:layout_constraintStart_toStartOf="@id/subtitle"
+
+            app:layout_constraintTop_toBottomOf="@+id/subtitle"
+            />
+
+
+        <Button
+            android:id="@+id/bouton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/button_main"
+            android:layout_marginTop="30dp"
+            android:text="Connecter"
+            android:textColor="@color/white"
+           app:layout_constraintTop_toBottomOf="@id/inscrirewORD"
+android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+             />
+
+        <TextView
+            android:id="@+id/inscrire"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Vous avez pas un compte?"
+
+
+            app:layout_constraintStart_toStartOf="@id/mdp"
+            app:layout_constraintTop_toBottomOf="@+id/mdp" />
+
+        <TextView
+            android:id="@+id/inscrirewORD"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text=" Inscrire"
+            android:textColor="#0099ff"
+            app:layout_constraintBaseline_toBaselineOf="@id/inscrire"
+            app:layout_constraintStart_toEndOf="@id/inscrire"
+            app:layout_constraintTop_toBottomOf="@id/mdp" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:text="Système de pistage de baggage en temps réel. Avec cette application votre baggage est toujours en sécurité. "
+            app:layout_constraintEnd_toEndOf="@id/bouton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/bouton"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.20" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.80" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.20" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+

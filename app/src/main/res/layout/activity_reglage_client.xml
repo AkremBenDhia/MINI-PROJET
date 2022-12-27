@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/ic_wave__14_"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:drawableStart="@drawable/tip"
+        android:drawablePadding="10dp"
+        android:id="@+id/positionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisir votre latitude et votre longitude"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:textColor="@color/black"
+        android:layout_marginTop="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configuration"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/user"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:src="@drawable/username"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title" />
+
+    <EditText
+
+        android:id="@+id/setLatitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Insérer la latitude "
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp"
+
+        android:drawableStart="@drawable/icon_loc"
+        android:drawablePadding="10dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/positionText"
+         />
+
+
+
+    <TextView
+        android:drawableStart="@drawable/tip"
+        android:drawablePadding="10dp"
+        android:id="@+id/distanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisir la distance en kilométre entre votre position actuelle et votre sac"
+        app:layout_constraintTop_toBottomOf="@id/setLongitude"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <EditText
+
+        android:id="@+id/setLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insérer la longitude "
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/black"
+        android:drawableStart="@drawable/icon_loc"
+        android:drawablePadding="10dp"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/setLatitude"
+        />
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/setDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insérer la Distance "
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp"
+        android:drawableStart="@drawable/distanc_icon"
+        android:drawablePadding="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/distanceText"
+       />
+
+    <Button
+        android:id="@+id/validerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_main"
+        android:text="Tracker !"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/setDistance" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
