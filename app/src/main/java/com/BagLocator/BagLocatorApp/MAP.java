@@ -119,22 +119,44 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
         });
 
 
-        DatabaseReference reference5= FirebaseDatabase.getInstance().getReference().child("LEUM").child("LEUMVAL");
+        DatabaseReference reference5= FirebaseDatabase.getInstance().getReference().child("LUMIERE").child("VALLUMIERE");
         reference5.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int val =dataSnapshot.getValue(){
+                Object val =dataSnapshot.getValue();
+
+                Etat.setText(val.toString());
+               String val2= val.toString();
+                firebaseLDR = Integer.valueOf(val2);
                 if(firebaseLDR>10){
+
                     Etat.setText("SAC OUVERT");
                     Etat.setTextColor(getResources().getColor(R.color.white));
                     Etat.setBackgroundColor(getResources().getColor(R.color.red));
+
+
+
+
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(MAP.this,"My Notification");
+
                     builder.setContentTitle("Alerte d'ouverture " );
                     builder.setContentText("SAC OUVERT !");
+
+                    builder.setSmallIcon(R.drawable.open);
+                    builder.setAutoCancel(true);
+
+
+                    Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+                    builder.setSound(path);
+
+                    NotificationManagerCompat managerCompat= NotificationManagerCompat.from(MAP.this);
+                    managerCompat.notify(1,builder.build() );
+
                 }else {
                     Etat.setText("SAC FERMER");
-                    Etat.setTextColor(R.color.white);
-                    Etat.setBackgroundColor(R.color.black);
+                    Etat.setTextColor(getResources().getColor(R.color.white));
+                    Etat.setBackgroundColor(getResources().getColor(R.color.black));
+
                 }
 
             }
@@ -153,6 +175,8 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
                 String lat = latitude.getText().toString();
                 int lo=lat.length();
                 String res = String.valueOf(lo);
+
+
                 Intent intent = getIntent();
                Double latitudeChoix= intent.getDoubleExtra("latitude",0);
                 Double longitudeChoix= intent.getDoubleExtra("longitude",0);
@@ -161,15 +185,31 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
 
                 gMap = googleMap;
                 LatLng mapTunisia= new LatLng(firebaseLatitude, firebaseLongitude);
+                gMap.addMarker(new MarkerOptions().position(mapTunisia).title("Mon sac"));
+                gMap.moveCamera(CameraUpdateFactory.newLatLng(mapTunisia));
+
+
                 double x = distance(firebaseLatitude,latitudeChoix,firebaseLongitude,longitudeChoix);
+
                 double convertedDistance=Math.floor(x * 100) / 100;
                 String destString = String.valueOf(convertedDistance);
                 distance.setText(destString+" km");
+
                 if(distanceChoix<x){
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(MAP.this,"My Notification");
 
                     builder.setContentTitle("ALERTE DISTANCE " );
                     builder.setContentText("Distance dépasse : "+convDistance+" km");
+
+                    builder.setSmallIcon(R.drawable.distanc_icon);
+                    builder.setAutoCancel(true);
+
+
+                    Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    builder.setSound(path);
+
+                    NotificationManagerCompat managerCompat= NotificationManagerCompat.from(MAP.this);
+                    managerCompat.notify(1,builder.build() );
                 }
 
 
@@ -182,4 +222,3 @@ public class MAP extends FragmentActivity implements OnMapReadyCallback {
 
 
     }
-}
