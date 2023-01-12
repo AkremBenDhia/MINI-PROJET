@@ -25,17 +25,7 @@ public class Reglage_Client extends AppCompatActivity {
         validerButton= findViewById(R.id.validerButton);
         user=findViewById(R.id.user);
 
-        user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentGet = getIntent();
-                String mdp=intentGet.getStringExtra("mdp");
 
-                Intent intent= new Intent(Reglage_Client.this,user.class);
-                intent.putExtra("mdp",mdp);
-                startActivity(intent);
-            }
-        });
 
         validerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,12 +34,6 @@ public class Reglage_Client extends AppCompatActivity {
                 String longitude = longitude1.getText().toString();
                 String dist = distance.getText().toString();
 
-                if(latitude.isEmpty() && longitude.isEmpty() && dist.isEmpty()){
-                    latitude1.setError("vide");
-                    longitude1.setError("vide");
-                    distance.setError("vide");
-                }else
-                {
                     Double convLat= Double.valueOf(latitude);
                     Double convLong= Double.valueOf(longitude);
                     Double distance= Double.valueOf(dist);
@@ -59,7 +43,7 @@ public class Reglage_Client extends AppCompatActivity {
                     intent.putExtra("longitude",convLong);
                     intent.putExtra("distance",distance);
                     startActivity(intent);
-                }
+
             }
         });
 
